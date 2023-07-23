@@ -33,6 +33,6 @@ class sendPush extends Command
         $message = 'テスト';
 
         // push通知送信&お知らせ作成
-        SendPushMessage::dispatch($sendUserIds, 'タイトル', $message);
+        SendPushMessage::dispatch($sendUserIds, 'タイトル', $message, "https://runpush-prd.s3.ap-northeast-1.amazonaws.com/hisaju.png");
     }
 }

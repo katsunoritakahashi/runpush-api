@@ -20,6 +20,7 @@ class SendPushMessage implements ShouldQueue
     private $userIds;
     private $title;
     private $body;
+    private $imageUrl;
 
     /**
      * Create a new job instance.
@@ -30,12 +31,14 @@ class SendPushMessage implements ShouldQueue
     (
         array $userIds,
         string $title,
-        string $body
+        string $body,
+        string $imageUrl
     )
     {
         $this->userIds = $userIds;
         $this->title = $title;
         $this->body = $body;
+        $this->imageUrl = $imageUrl;
     }
 
     /**
@@ -65,7 +68,7 @@ class SendPushMessage implements ShouldQueue
 
         if (count($tokens) > 0) {
             $messaging = $factory->createMessaging();
-            $notification = Notification::create($this->title, $this->body);
+            $notification = Notification::create($this->title, $this->body, $this->imageUrl);
 
             $message = CloudMessage::withTarget('token', $tokens[0])
                 ->withNotification($notification);

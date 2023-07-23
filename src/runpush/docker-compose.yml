@@ -31,7 +31,6 @@ services:
       dockerfile: containers/app/php/Dockerfile
     depends_on:
       - db
-      - mail
     volumes:
       - ../app/:/var/www/html/app
 

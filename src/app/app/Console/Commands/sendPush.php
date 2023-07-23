@@ -44,7 +44,7 @@ class sendPush extends Command
             $sendUserIds = User::where('end_at', '>', $now)->where('character_id', $character->id)->pluck('id')->toArray();
             $message = $character->messages()->inRandomOrder()->first();
 
-            SendPushMessage::dispatch($sendUserIds, $character->title, $message->message, $character->image_url);
+            SendPushMessage::dispatch($sendUserIds, $character->name, $message->message, $character->image_url);
         }
     }
 }

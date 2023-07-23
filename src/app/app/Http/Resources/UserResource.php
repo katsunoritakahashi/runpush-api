@@ -2,8 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Facades\FacadeS3Helper;
-
 class UserResource extends BaseResource
 {
     /**
@@ -15,12 +13,11 @@ class UserResource extends BaseResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'familyName' => $this->family->name,
-            'userName' => $this->name,
-            'position' => $this->position->name,
+            'uid' => $this->uid,
+            'deviceToken' => $this->device_token,
+            'characterId' => $this->character_id,
+            'endAt' => $this->end_at,
             'email' => $this->email,
-            'iconUrl' => FacadeS3Helper::getFilePublic($this->user_icon_url),
         ];
     }
 }

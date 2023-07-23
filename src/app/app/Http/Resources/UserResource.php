@@ -17,7 +17,6 @@ class UserResource extends BaseResource
             'deviceToken' => $this->device_token,
             'characterId' => $this->character_id,
             'endAt' => $this->end_at,
-            'email' => $this->email,
         ];
     }
 }

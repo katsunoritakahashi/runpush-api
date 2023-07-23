@@ -47,6 +47,11 @@ class BaseRequest extends FormRequest
             $validator->errors()->toArray()
         );
     }
+
+    public function validated($key = null, $default = null)
+    {
+        return toSnakeArrayRecursive($this->validator->validated());
+    }
 }
 
 function toSnakeArrayRecursive(array $array)

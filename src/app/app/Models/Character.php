@@ -2,22 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Character extends Model
 {
-    use Notifiable;
+    const RANTEKUN = 1;
+    const HISAJU = 2;
+    const PHARAOH = 3;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'uid',
-        'device_token',
-        'character_id',
-        'end_at',
-    ];
+
+    public function messages()
+    {
+        return $this->hasMany('App\Models\CharacterMessage');
+    }
 }

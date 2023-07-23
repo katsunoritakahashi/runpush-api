@@ -1,14 +1,17 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Character;
+use App\Models\CharacterMessage;
 use Illuminate\Database\Seeder;
 
-class CharacterSeeder extends Seeder
+class CharacterMessagesSeeder extends Seeder
 {
-    private $characters = [
-        1 => ['カエルとキツネのキメラ', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/runtekun.png'],
-        2 => ['校長先生', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/hisaju.png'],
-        3 => ['𓉔𓍢𓃭𓄿𓂋𓄿𓍯', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/pharaoh.png'],
+    private $messages = [
+        [Character::RANTEKUN, 'カリキュラムの調子はどうかな？無理なく頑張ってくれよな！応援してるぞ！'],
+        [Character::HISAJU, '仕事(twitter)ちゃんとしましょうー'],
+        [Character::PHARAOH, '𓎡𓍯𓅓𓄿𓏏𓏏𓄿𓎡𓍯𓏏𓍯𓎼𓄿𓄿𓂋𓇌𓃀𓄿𓈖𓄿𓈖𓂧𓇌𓅓𓍯𓎡𓇋𓇋𓏏𓇌𓈖𓇌'],
     ];
 
     /**
@@ -18,10 +21,10 @@ class CharacterSeeder extends Seeder
      */
     public function run()
     {
-        foreach ($this->characters as $index => $character) {
-            Character::updateOrCreate(
-                ['id' => $index],
-                ['id' => $index, 'name' => $character[0], 'image_url' => $character[1]]
+        foreach ($this->messages as $index => $message) {
+            CharacterMessage::updateOrCreate(
+                ['id' => $index + 1],
+                ['id' => $index + 1, 'character_id' => $message[0], 'message' => $message[1]]
             );
         }
     }

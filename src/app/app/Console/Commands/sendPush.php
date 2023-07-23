@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Enums\Character;
 use App\Jobs\SendPushMessage;
+use App\Models\Character;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -39,24 +39,12 @@ class sendPush extends Command
         $endTime = Carbon::today()->setHour(self::END_TIME);
 
         if ($now->between($startTime, $endTime)) {
+            // ランダムなキャラクターを選定し、、そのキャラクターを選んだユーザーにpush通知を送る
+            $character = Character::inRandomOrder()->first();
+            $sendUserIds = User::where('end_at', '>', $now)->where('character_id', $character->id)->pluck('id')->toArray();
+            $message = $character->messages()->inRandomOrder()->first();
 
-            // らんてくん
-            $sendUserIds = User::where('end_at', '>', $now)->where('character_id', Character::RUNTEKUN)->pluck('id')->toArray();
-            $title = 'カエルとキツネのキメラ';
-            $message = 'カリキュラムの進捗はどうかな？応援してるゾ！';
-            SendPushMessage::dispatch($sendUserIds, $title, $message, "https://runpush-prd.s3.ap-northeast-1.amazonaws.com/runtekun.png");
-
-            // ひさじゅさん
-            $sendUserIds = User::where('end_at', '>', $now)->where('character_id', Character::HISAJU)->pluck('id')->toArray();
-            $title = '校長先生';
-            $message = '仕事(twitter)ちゃんとしましょうー';
-            SendPushMessage::dispatch($sendUserIds, $title, $message, "https://runpush-prd.s3.ap-northeast-1.amazonaws.com/hisaju.png");
-
-            // らんてくん
-            $sendUserIds = User::where('end_at', '>', $now)->where('character_id', Character::PHARAOH)->pluck('id')->toArray();
-            $title = '𓉔𓍢𓃭𓄿𓂋𓄿𓍯';
-            $message = '𓎡𓍯𓅓𓄿𓏏𓏏𓄿𓎡𓍯𓏏𓍯𓎼𓄿𓄿𓂋𓇌𓃀𓄿𓈖𓄿𓈖𓂧𓇌𓅓𓍯𓎡𓇋𓇋𓏏𓇌𓈖𓇌';
-            SendPushMessage::dispatch($sendUserIds, $title, $message, "https://runpush-prd.s3.ap-northeast-1.amazonaws.com/pharaoh.png");
+            SendPushMessage::dispatch($sendUserIds, $character->title, $message->message, $character->image_url);
         }
     }
 }

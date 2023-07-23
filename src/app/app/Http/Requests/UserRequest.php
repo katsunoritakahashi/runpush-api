@@ -9,7 +9,7 @@ class UserRequest extends BaseRequest
         return [
             'uid' => 'required|string|max:100',
             'deviceToken' => 'required|string|max:200',
-            'characterId' => 'required|integer',
+            'characterId' => 'required|exists:characters.id',
             'endAt' => 'required',
         ];
     }

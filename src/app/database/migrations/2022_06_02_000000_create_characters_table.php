@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateCharactersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uid')->comment('firebaseのuid');
-            $table->string('device_token', 200)->comment('デバイストークン');
-            $table->foreignId('character_id')->comment('キャラクターID');
-            $table->dateTime('end_at')->comment('終了日時');
+            $table->string('name')->comment('キャラクター名');
+            $table->string('image_url')->comment('キャラクター画像');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('characters');
     }
 };

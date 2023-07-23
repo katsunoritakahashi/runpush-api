@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCharactersTable extends Migration
+class CreateCharacterMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCharactersTable extends Migration
      */
     public function up()
     {
-        Schema::create('characters', function (Blueprint $table) {
+        Schema::create('character_messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->comment('キャラクター名');
-            $table->string('title', 20)->comment('タイトル');
-            $table->string('image_url')->comment('キャラクター画像');
+            $table->foreignId('character_id');
+            $table->string('message')->comment('メッセージ');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateCharactersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characters');
+        Schema::dropIfExists('character_messages');
     }
 };

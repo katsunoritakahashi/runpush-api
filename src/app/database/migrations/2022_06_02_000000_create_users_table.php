@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('uid')->comment('firebaseのuid');
             $table->string('device_token', 200)->comment('デバイストークン');
-            $table->tinyInteger('character_id')->comment('キャラクターID');
+            $table->foreignId('character_id')->comment('キャラクターID');
             $table->dateTime('end_at')->comment('終了日時');
             $table->timestamps();
         });

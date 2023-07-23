@@ -2,36 +2,28 @@
 
 namespace Database\Seeders;
 
+use App\Models\Character;
 use Illuminate\Database\Seeder;
-use App\Models\Position;
 
-class PositionSeeder extends Seeder
+class CharacterSeeder extends Seeder
 {
-    private $positions = [
-        '旦那',
-        '妻',
-        '息子',
-        '娘',
-        '祖父',
-        '祖母',
-        '叔父',
-        '叔母',
-        '彼氏',
-        '彼女',
-        '父',
-        '母',
-        'その他',
+    private $characters = [
+        1 => ['カエルとキツネのキメラ', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/runtekun.png'],
+        2 => ['校長先生', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/hisaju.png'],
+        3 => ['𓉔𓍢𓃭𓄿𓂋𓄿𓍯', 'https://runpush-prd.s3.ap-northeast-1.amazonaws.com/pharaoh.png'],
     ];
+
     /**
-     * Run the database seeders.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        foreach ($this->positions as $position) {
-            Position::Create(
-                ['name' => $position],
+        foreach ($this->characters as $index => $character) {
+            Character::updateOrCreate(
+                ['id' => $index],
+                ['id' => $index, 'name' => $character[0], 'image_url' => $character[1]]
             );
         }
     }

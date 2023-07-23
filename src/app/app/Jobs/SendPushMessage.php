@@ -30,7 +30,7 @@ class SendPushMessage implements ShouldQueue
     (
         array $userIds,
         string $title,
-        string $body,
+        string $body
     )
     {
         $this->userIds = $userIds;

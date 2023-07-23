@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\SendPushMessage;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class sendPush extends Command
@@ -27,6 +29,10 @@ class sendPush extends Command
      */
     public function handle()
     {
-        //
+        $sendUserIds = User::where('end_at', '>', now())->pluck('id')->toArray();
+        $message = 'テスト';
+
+        // push通知送信&お知らせ作成
+        SendPushMessage::dispatch($sendUserIds, 'タイトル', $message);
     }
 }

@@ -1,0 +1,1 @@
+docker-compose exec db mysql -u root -ppassword -e "DROP DATABASE runpush_db;";

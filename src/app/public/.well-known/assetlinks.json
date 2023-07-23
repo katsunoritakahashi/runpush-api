@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.herokuapp.cajico",
+            "sha256_cert_fingerprints": [
+                "C3:0A:33:26:7D:25:8F:64:40:F3:A6:C1:73:00:71:94:68:A6:B6:14:5E:B4:3F:59:D7:E9:01:53:16:81:9E:E9",
+                "32:5F:93:67:11:1C:A6:5A:C6:E5:F4:2A:41:9D:47:33:85:BC:F6:22:32:D5:0A:B3:2C:83:86:F4:B8:46:EB:C9"
+            ]
+        }
+    }
+]

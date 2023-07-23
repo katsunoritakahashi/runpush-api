@@ -1,0 +1,154 @@
+body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 14px 14px;
+    font-size: 14px;
+}
+h1 {
+    border-bottom: 2px solid #eee;
+}
+ul {
+    padding-left: 30px;
+}
+ol {
+    padding-left: 20px;
+}
+.margin {
+    margin-left: 3px;
+}
+.style-none {
+    text-indent: -1.5em;
+}
+.style-none > li {
+    list-style-type:none;
+    list-style-position:inside;
+    counter-increment: cnt;
+}
+.style-none > li:before {
+    display: marker;
+    content: "(" counter(cnt) ")";
+}
+#terms > ol > li > p.bold {
+    font-weight: bold;
+}
+#terms {
+    margin: 14px;
+}
+#terms > ol {
+    padding: 0;
+}
+#terms > ul > li {
+    font-weight: bold;
+}
+#terms > ul > li > p {
+    font-weight: 400;
+}
+/*#terms > ol > li {*/
+/*    font-weight: bold;*/
+/*    list-style-type: none;*/
+/*}*/
+#terms > ol > li > ul {
+    margin-top: 10px;
+}
+#terms > ol > li > ol {
+}
+#terms > ol > li > p {
+    font-weight: 400;
+}
+#terms > ul > li > ol > li {
+    font-weight: 400;
+}
+#terms > ol > li > ol > li {
+    font-weight: 400;
+}
+#terms > ol > li > ol > li > ol {
+    text-indent: -1em;
+}
+
+#terms > ol > li > ul > li {
+    font-weight: 400;
+    list-style-type: disc;
+}
+#policy {
+    margin: 5px;
+}
+#policy > ol {
+    padding: 0;
+}
+#policy > ul > li {
+    font-weight: bold;
+}
+#policy > ul > li > p {
+    font-weight: 400;
+}
+#policy > ol > li {
+    padding: 5px 0;
+    font-weight: bold;
+    /*list-style-type: none;*/
+}
+#policy > ol > li > ul {
+}
+#policy > ol > li > p {
+    font-weight: 400;
+}
+#policy > ol > li > p.bold {
+    font-weight: bold;
+}
+#policy > ul > li > ol > li {
+    font-weight: 400;
+}
+#policy > ol > li > ol > li {
+    font-weight: 400;
+}
+#policy > ol > li > ul > li {
+    font-weight: 400;
+    list-style-type: disc;
+}
+#help > ul> li.toggle > p {
+    display: none;
+}
+#help > ul {
+    padding: 0;
+    margin: 0;
+}
+#help > .label {
+    background-color: #04C97D;
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    margin:0px;
+}
+#help > ul > li:before {
+    content: '▼';
+    float: right;
+    color: #04C97D;
+    margin-right:12px;
+}
+#help > ul > li {
+    list-style-type: none;
+    border: 1px solid #eee;
+    padding:12px;
+}
+#help > ul > li:after {
+    clear: both;
+}
+#tokushoho {
+    margin: 14px;
+}
+#tokushoho ol {
+    padding: 0;
+}
+#tokushoho ul {
+    padding: 0;
+    margin-bottom: 14px;
+}
+#tokushoho li {
+    list-style-type: none;
+}
+#tokushoho > ol > li > p {
+    font-weight: 400;
+    margin-top: 5px;
+}
+#tokushoho > ol > li > p.bold {
+    font-weight: bold;
+    margin-bottom: 5px;
+}

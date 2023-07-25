@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 Route::controller(UserController::class)->group(function () {
     Route::post('register-user', 'registerUser');
+    Route::get('user/{uid}', 'getUser');
 });

@@ -17,4 +17,10 @@ class UserController extends Controller
         });
         return new UserResource($user);
     }
+
+    public function getUser($uid)
+    {
+        $user = User::where('uid', $uid)->first();
+        return new UserResource($user);
+    }
 }

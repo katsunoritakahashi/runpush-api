@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function getUser($uid)
     {
-        $user = User::where('uid', $uid)->first();
+        $user = User::where('uid', $uid)->where('end_at', '>=', Carbon::now())->first();
         return new UserResource($user);
     }
 }

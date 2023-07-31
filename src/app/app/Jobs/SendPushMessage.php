@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Kreait\Firebase\Messaging\ApnsConfig;
 use Kreait\Firebase\Messaging\CloudMessage;
 use Kreait\Firebase\Messaging\Notification;
 use Kreait\Firebase\Factory;
@@ -71,7 +72,18 @@ class SendPushMessage implements ShouldQueue
             $notification = Notification::create($this->title, $this->body, $this->imageUrl);
 
             $message = CloudMessage::withTarget('token', $tokens[0])
-                ->withNotification($notification);
+                ->withNotification($notification)->withApnsConfig(
+                    ApnsConfig::fromArray([
+                        'payload' => [
+                            'aps' => [
+                                'mutable-content' => 1,
+                            ],
+//                            'fcm_options' => [
+//                                'image' => '"image":"https://foo.bar/pizza-monster.png"',
+//                            ],
+                        ],
+                    ])
+                );
 
             if (count($tokens) === 1) {
                 $messaging->send($message);

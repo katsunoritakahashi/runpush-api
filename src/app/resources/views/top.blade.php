@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://runpush-5f3841365808.herokuapp.com/" /> <!--③-->
+    <meta property="og:title" content="RUNPUSH" /> <!--④-->
+    <meta property="og:description" content="自走するあなたを「PUSH」する" /> <!--⑤-->
+    <meta property="og:image" content="../images/ogp.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +34,7 @@
     </div>
     <div class="button-pc">
         <a href='https://testflight.apple.com/join/Rct8Tka6'><img alt='iOS' src='../images/ios_link.png' style="height: 100px;"/></a>
-        <a href='..app-release.apk' download><img alt='Android' src='../images/android_link.png' style="height: 100px;"/></a>
+        <a href='../app-release.apk' download><img alt='Android' src='../images/android_link.png' style="height: 100px;"/></a>
     </div>
 </div>
 <div class="sp">
@@ -38,7 +43,7 @@
     </div>
     <div class="button-sp">
         <a href='https://testflight.apple.com/join/Rct8Tka6'><img alt='iOS' src='../images/ios_link.png' style="height: 100px;"/></a>
-        <a href='..app-release.apk' download><img alt='Android' src='../images/android_link.png' style="height: 100px;"/></a>
+        <a href='../app-release.apk' download><img alt='Android' src='../images/android_link.png' style="height: 100px;"/></a>
     </div>
 </div>
 </body>

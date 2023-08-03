@@ -78,9 +78,6 @@ class SendPushMessage implements ShouldQueue
                             'aps' => [
                                 'mutable-content' => 1,
                             ],
-//                            'fcm_options' => [
-//                                'image' => '"image":"https://foo.bar/pizza-monster.png"',
-//                            ],
                         ],
                     ])
                 );

@@ -5,7 +5,7 @@
     <meta property="og:url" content="https://runpush-5f3841365808.herokuapp.com/" /> <!--③-->
     <meta property="og:title" content="RUNPUSH" /> <!--④-->
     <meta property="og:description" content="自走するあなたを「PUSH」する" /> <!--⑤-->
-    <meta property="og:image" content="../images/ogp.png" />
+    <meta property="og:image" content="https://runpush-prd.s3.ap-northeast-1.amazonaws.com/ogp.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
